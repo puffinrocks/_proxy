@@ -3,7 +3,7 @@ version: '2'
 services:
 
     main:
-        image: loomchild/nginx-proxy
+        image: puffinrocks/nginx-proxy
         volumes: 
             - /var/run/docker.sock:/tmp/docker.sock:ro
         ports:
