@@ -3,7 +3,7 @@ version: '2'
 services:
 
     main:
-        image: puffinrocks/nginx-proxy
+        image: puffinrocks/proxy
         volumes: 
             - /var/run/docker.sock:/tmp/docker.sock:ro
         ports:
