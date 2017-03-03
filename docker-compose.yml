@@ -4,8 +4,12 @@ services:
 
     main:
         image: puffinrocks/proxy
+        container_name: puffinxproxy_main_1
         volumes: 
             - /var/run/docker.sock:/tmp/docker.sock:ro
+            - certs_data:/etc/nginx/certs:ro
+            - vhost_data:/etc/nginx/vhost.d
+            - html_data:/usr/share/nginx/html
         ports:
             - "80:80"
         networks:
@@ -13,6 +17,22 @@ services:
         tmpfs:
             - /run
             - /tmp
+
+    letsencrypt:
+        image: jrcs/letsencrypt-nginx-proxy-companion
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            - certs_data:/etc/nginx/certs
+            - vhost_data:/etc/nginx/vhost.d
+            - html_data:/usr/share/nginx/html
+        environment:
+            - NGINX_PROXY_CONTAINER=puffinxproxy_main_1
+            - DEBUG=true
+
+volumes:
+    certs_data:
+    vhost_data:
+    html_data:
 
 networks:
     front:
