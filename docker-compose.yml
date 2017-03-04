@@ -28,7 +28,6 @@ services:
             - html_data:/usr/share/nginx/html
         environment:
             - NGINX_PROXY_CONTAINER=puffinxproxy_main_1
-            - DEBUG=true
 
 volumes:
     certs_data:
