@@ -4,7 +4,7 @@ services:
 
     main:
         image: puffinrocks/proxy
-        container_name: puffinxproxy_main_1
+        container_name: puffinxxxxproxy_main_1
         volumes: 
             - /var/run/docker.sock:/tmp/docker.sock:ro
             - certs_data:/etc/nginx/certs:ro
@@ -27,7 +27,7 @@ services:
             - vhost_data:/etc/nginx/vhost.d
             - html_data:/usr/share/nginx/html
         environment:
-            - NGINX_PROXY_CONTAINER=puffinxproxy_main_1
+            - NGINX_PROXY_CONTAINER=puffinxxxxproxy_main_1
 
 volumes:
     certs_data:
