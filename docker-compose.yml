@@ -28,7 +28,6 @@ services:
             - html_data:/usr/share/nginx/html
         environment:
             - NGINX_PROXY_CONTAINER=puffinxxxxproxy_main_1
-            - ACME_TOS_HASH=cc88d8d9517f490191401e7b54e9ffd12a2b9082ec7a1d4cec6101f9f1647e7b
 
 volumes:
     certs_data:
